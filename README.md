@@ -19,11 +19,40 @@ Write your own steps
 
 ## PROGRAM
 
-Include your code here
+```
+Model.py
+
+from django.db import models
+from django.contrib import admin
+class Employee (models.Model):
+    eid=models.CharField(max_length=20,help_text="Employee ID")
+    name=models.CharField(max_length=100)
+    salary=models.IntegerField()
+    age=models.IntegerField()
+    email=models.EmailField()
+
+
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display=('eid','name','salary','age','email')
+
+
+admin.py
+
+from django.contrib import admin
+from .models import Employee,EmployeeAdminadmin
+admin.site.register(Employee,EmployeeAdmin)
+
+
+```
 
 ## OUTPUT
+![OUTPUT](./Out.png)
 
-Include the screenshot of your admin page.
+![OUTPUT](./in.png)
+
+
 
 
 ## RESULT
+
+program Executed Successfully
